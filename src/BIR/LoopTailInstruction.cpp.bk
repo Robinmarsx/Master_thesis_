@@ -1,0 +1,140 @@
+// Copyright (C) 2019 Yu Yang
+//
+// This file is part of Vesyla.
+//
+// Vesyla is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Vesyla is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Vesyla.  If not, see <http://www.gnu.org/licenses/>.
+
+#include "LoopTailInstruction.hpp"
+#include "Instruction.hpp"
+
+namespace BIR
+{
+LoopTailInstruction::LoopTailInstruction() : Instruction()
+{
+	corresponding_loop_header_instr = nullptr;
+}
+
+LoopTailInstruction::LoopTailInstruction(BIR::Instruction *instr_) : Instruction(instr_)
+{
+	CHECK_EQ(instr_->kind(), BIR::BIREnumerations::bktLoopTailInstruction);
+	LoopTailInstruction *ii = static_cast<LoopTailInstruction *>(instr_);
+	loopId = ii->loopId;
+	stepValue = ii->stepValue;
+	gotoPC = gotoPC;
+	corresponding_loop_header_instr = ii->corresponding_loop_header_instr;
+}
+
+pt::ptree LoopTailInstruction::dump()
+{
+	pt::ptree p;
+	pt::ptree pd;
+
+	p.put("id", id());
+	p.put("kind", kindStr());
+
+	p.put("loopId", loopId);
+	p.put("stepValue", stepValue);
+	p.put("gotoPC", gotoPC);
+
+	if (corresponding_loop_header_instr)
+		p.put("corresponding_loop_header_instr", corresponding_loop_header_instr->id());
+
+	vector<string>::iterator it;
+	int i = 0;
+	for (it = timelabels.begin(); it != timelabels.end(); it++, i++)
+	{
+		pt::ptree pi;
+		pi.put("order", i);
+		pi.put("tag", *it);
+		pd.add_child("timelabel", pi);
+	}
+	p.add_child("timelabels", pd);
+
+	return p;
+}
+
+void LoopTailInstruction::load(pt::ptree p)
+{
+	boost::optional<const pt::ptree &> opt_child;
+
+	//id(p.get<int>("id"));
+	//string kind = p.get<string>("kind");
+
+	loopId = p.get<int>("loopId");
+	stepValue = p.get<int>("stepValue");
+	gotoPC = p.get<int>("gotoPC");
+
+	opt_child = p.get_child_optional("corresponding_loop_header_instr");
+	if (opt_child)
+	{
+		corresponding_loop_header_instr = (Instruction *)p.get<int>("corresponding_loop_header_instr");
+	}
+	else
+	{
+		corresponding_loop_header_instr = NULL;
+	}
+
+	string arr[3] = {""};
+	for (pt::ptree::value_type &v : p.get_child("timelabels"))
+	{
+		if (v.first == "timelabel")
+		{
+			int order = v.second.get<int>("order");
+			string tag = v.second.get<string>("tag");
+			arr[order] = tag;
+		}
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (arr[i] != "")
+		{
+			timelabels.push_back(arr[i]);
+		}
+		else
+		{
+			break;
+		}
+	}
+}
+
+void LoopTailInstruction::load2(map<int, BIR::Instruction *> instr_list)
+{
+	if (corresponding_loop_header_instr)
+	{
+		intptr_t index1 = reinterpret_cast<intptr_t>(corresponding_loop_header_instr);
+		corresponding_loop_header_instr = (Instruction *)instr_list[index1];
+	}
+}
+
+string LoopTailInstruction::to_bin()
+{
+	string instr = "1001";
+	instr += std::bitset<4>(stepValue).to_string();
+	instr += std::bitset<6>(gotoPC).to_string();
+	instr += std::bitset<6>(loopId).to_string();
+	instr += std::bitset<27 - 4 - 4 - 6 - 6>(0).to_string();
+	return instr;
+}
+
+string LoopTailInstruction::to_str()
+{
+	string instr = "LOOPH";
+	instr += " " + to_string(stepValue);
+	instr += " " + to_string(gotoPC);
+	instr += " " + to_string(loopId);
+	return instr;
+}
+
+} // namespace BIR

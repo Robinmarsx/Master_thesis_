@@ -1,0 +1,28 @@
+[INFO 11:25:38] Using schedule engine : ResourcePredictEngine
+[INFO 11:25:38] Schedule subgraph done! 
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[DEBUG 11:27:48] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) sdsdsd
+[INFO 11:27:48] Using schedule engine : ResourcePredictEngine
+[INFO 11:27:48] Schedule subgraph done! 
+[INFO 11:28:54] Using schedule engine : ResourcePredictEngine
+[INFO 11:28:54] Schedule subgraph done! 
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[DEBUG 11:29:49] (void vesyla::schedule::Descriptor::load(boost::property_tree::ptree) @ /home/xu/Desktop/to_zihao/src/schedule/Descriptor.cpp:127) Operaion
+[INFO 11:29:49] Using schedule engine : ResourcePredictEngine
+[INFO 11:29:49] Schedule subgraph done! 
